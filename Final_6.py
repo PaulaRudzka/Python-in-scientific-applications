@@ -19,7 +19,6 @@ parser.add_argument("-f","--filename",type=str)
 args=parser.parse_args()
 
 options = Options()
-# options.add_argument('--headless')
 
 service = Service('chromedriver.exe')
 
@@ -38,9 +37,6 @@ scents = driver.find_element(By.XPATH, '//*[@id="theme-app"]/div/div/div[1]/div/
 scents.click()
 time.sleep(10)
 
-# col = driver.find_element(By.XPATH, '//*[@id="theme-app"]/div/div/div[1]/div/div/div[2]/nav/div[1]/ul[4]/li[15]/ul/li[1]/a')
-# col.click()
-# time.sleep(10)
 view = driver.find_element(By.XPATH, '//*[@id="theme-app"]/div/div/header/div[4]/div/button[2]')
 view.click()
 time.sleep(10)
@@ -53,17 +49,11 @@ main_div = driver.find_element(By.CLASS_NAME, 'product-grid__product-list')
 
 item=[]
 for results in main_div.find_elements(By.CSS_SELECTOR, 'h2'):
-    # print(results.tag_name)
     item.append(results.text.strip())
-    # print(results.text.strip())
-    # print('------------------')
 
 prize=[]
 for results in main_div.find_elements(By.CLASS_NAME, 'money-amount__main'):
     prize.append(results.text.strip())
-
-    # print(results.text.strip())
-    # print('------------------')
 
 zara=list(zip(item,prize))
 zara
