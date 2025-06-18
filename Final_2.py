@@ -6,7 +6,6 @@ import argparse
 from tqdm import tqdm
 import pandas as pd
 
-#dla domyślnych wartości liczy się jakieś 4h!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 def list_of_strings(arg):
     return arg.split(',')
@@ -19,7 +18,6 @@ parser.add_argument('-b', '--b', type=int, default=0.5)
 parser.add_argument('-p', '--positive', type=float, default=0.5)
 parser.add_argument('-s', '--step', type=int, default=100)
 parser.add_argument('-i', '--ifile')
-# parser.add_argument('-a', '--image',default="img.png")
 parser.add_argument('-m', '--mfile')
 parser.add_argument('-g', '--gfile')
 
@@ -53,25 +51,13 @@ class ising:
     
     def spin(self):
         x,y=np.random.randint(self.size,size=2)
-        # print(f'x:{x} y:{y}')
         E1=self.energy()
-        # print(f'e:{E1}')
-        # print(self.matrix[x][y])
         self.matrix[x][y]=-self.matrix[x][y]
-        # A[x][y]=-A[x][y]
-        # print(A2[x][y])
         E2=self.energy()
-        # print(E2)
-        # print(E2-E1)
         if E2-E1>0:
-            # print(np.exp(-args.b*(E2-E1)))
             gg=random.random()
-            # print(gg)
             if gg > np.exp(-args.b*(E2-E1)):
-                # print('nie tym razem')
                 self.matrix[x][y]=-self.matrix[x][y]
-                # A[x][y]=-A[x][y]
-
     def magn(self):
         self.M=np.sum(self.matrix)/self.size**2
 
@@ -92,16 +78,6 @@ def img(m,k):
 
 
 A=ising()
-# print(A.matrix)
-# A.extend()
-# print(A.matrix)
-
-# A.energy()
-# H=A.H
-# print(H)
-# print(A.matrix)
-# # A.spin()
-# print(A.matrix)
 
 n=args.n
 # m=A.matrix
