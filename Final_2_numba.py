@@ -22,7 +22,6 @@ parser.add_argument('-b', '--b', type=int, default=0.5)
 parser.add_argument('-p', '--positive', type=float, default=0.5)
 parser.add_argument('-s', '--step', type=int, default=100)
 parser.add_argument('-i', '--ifile')
-# parser.add_argument('-a', '--image',default="img.png")
 parser.add_argument('-m', '--mfile')
 parser.add_argument('-g', '--gfile')
 
@@ -37,17 +36,13 @@ ifile=args.ifile
 mfile=args.mfile
 gfile=args.gfile
 
-# print(int(args.step))
-
 
 
 def ext(A):
-    # print(A)
     a=np.array(A[0,:])
     A1=np.vstack((A,a))
     b=np.array(A1[:,0])
     A2=np.c_[A1,b]
-    # print(A2)
     return A2
 
 @jit
@@ -68,18 +63,10 @@ def energy(A):
 
 @jit
 def spin(A,b,x,y):
-    # print(f'x:{x} y:{y}')
     E1=energy(A)
-    # print(f'e:{E1}')
-    # print(A2[x][y])
     A[x][y]=-A[x][y]
-    # A2[x][y]=-A2[x][y]
-    # print(A2[x][y])
     E2=energy(A)
-    # print(E2)
-    # print(E2-E1)
     if E2-E1>0:
-        # print(np.exp(-b*(E2-E1)))
         gg=random.random()
         # print(gg)
         if gg > np.exp(-b*(E2-E1)):
@@ -113,12 +100,10 @@ A=np.random.choice([1, -1], (args.n, args.n),(positive,1-positive))
 M=[]
 colors=['RED','GREEN','YELLOW']
 for i in tqdm(range(step),position=0,colour='MAGENTA', ascii=' ✿✿', ncols=100):
-    # print(f'{i} !!!!!!!!!!!!!!!!!!!!!!!!!!')
     m=np.copy(A)
     img(m,i)
     for j in tqdm(range(n**2),position=1,leave=False, colour=colors[i%3],ascii=" ♡♡",ncols=100):
         x,y=np.random.randint(n,size=2)
-        # print(A2)
         A=spin(A,b,x,y)
     mm=magn(A)
     M.append(mm)
