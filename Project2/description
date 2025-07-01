@@ -1,0 +1,1 @@
+The goal of this project is to write a simulation/visualization of a 2D Ising model using the Monte Carlo method. 2nd step is adding numba
