@@ -1,0 +1,3 @@
+The goal of this project is to numerically solve a system of differential equations. To do something timely, we will solve a simple epidemiological model - SIR, or Susceptible-Infected-Removed. 
+
+Your combative task is to read what these equations are all about, see how the various parameters should be interpreted, and finally solve numerically this system of equations for a few set of parameters (maybe something interesting happens there after certain values of these parameters are exceeded? Or maybe not?). The results need to be visualized, of course.

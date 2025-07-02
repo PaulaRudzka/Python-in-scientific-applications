@@ -1,0 +1,1 @@
+The goal of this project is to write a decorator that counts the time of each execution of a function and then allows you to pull statistics (e.g. average, min, max, sdev), which it calculates and provides itself.
