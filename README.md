@@ -1,4 +1,5 @@
 Python course at Warsaw University of Technology
+
 Projects:
 1. Word Frequency Analysis
 2. Monte Carlo Simulation of the 2D Ising Mode
