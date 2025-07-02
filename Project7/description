@@ -1,0 +1,1 @@
+The purpose of this project is to see what the equations of a harmonic oscillator with damping/forcing (cosine) look like and to solve the two equations symbolically. Plots should be made for several values of the damping parameter and forcing frequency. Then solve the equation with damping and forcing and make graphs too.
